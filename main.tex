@@ -1,0 +1,44 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{mathptmx} % Paquete para cambiar a Times New Roman
+\usepackage[left=2.54cm, right=2.54cm, top=2.54cm, bottom=2.54cm]{geometry}
+\usepackage{tocbibind} % Para que el índice aparezca en el ToC
+\usepackage{float} % Para obligar la posición de las figuras
+\usepackage{listings} % Para el código fuente
+\usepackage{setspace} % Paquete para configurar el interlineado
+\usepackage{sectsty} % Paquete para configurar el tamaño de los títulos
+
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  frame=single,
+  language=Python,
+  captionpos=b
+}
+
+\doublespacing % Establece el interlineado a doble espacio
+
+% Configuración de los títulos
+\allsectionsfont{\normalsize}
+
+\begin{document}
+
+\input{portada}
+
+\newpage
+\tableofcontents
+\newpage
+
+\input{introduccion}
+\input{objetivos}
+\input{planteamiento_problema}
+\input{cambio_de_monedas}
+\input{problema_de_la_mochila}
+\input{problema_distancias_cortas}
+\input{conclusiones}
+\input{referencias}
+
+\end{document}
