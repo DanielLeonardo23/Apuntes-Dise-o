@@ -5,12 +5,13 @@
 \usepackage{amsmath}
 \usepackage{mathptmx} % Paquete para cambiar a Times New Roman
 \usepackage[left=2.54cm, right=2.54cm, top=2.54cm, bottom=2.54cm]{geometry}
-\usepackage{tocbibind} % Para que el índice aparezca en el ToC
+\usepackage{tocloft} % Paquete para el control del índice
 \usepackage{float} % Para obligar la posición de las figuras
 \usepackage{listings} % Para el código fuente
 \usepackage{setspace} % Paquete para configurar el interlineado
 \usepackage{booktabs} % Para mejorar el aspecto de las tablas
 \usepackage{sectsty} % Paquete para configurar el tamaño de los títulos
+\usepackage{hyperref}
 
 \lstset{
   basicstyle=\ttfamily\footnotesize,
@@ -25,21 +26,44 @@
 % Configuración de los títulos
 \allsectionsfont{\normalsize}
 
+% Redefinir el entorno thebibliography para que no incluya el título por defecto
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+
 \begin{document}
 
 \input{portada}
 
 \newpage
+
+% Temporalmente desactivar la entrada del índice para el ToC
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\renewcommand{\contentsname}{Índice} % Cambiar el nombre del índice
 \tableofcontents
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
 \newpage
 
 \input{introduccion}
+\newpage
 \input{objetivos}
+\newpage
 \input{planteamiento_problema}
+\newpage
 \input{cambio_de_monedas}
+\newpage
 \input{problema_de_la_mochila}
+\newpage
 \input{problema_distancias_cortas}
+\newpage
 \input{conclusiones}
+\newpage
+
+% Añadir manualmente "Referencia" al índice
+\section*{Referencia}
+\addcontentsline{toc}{section}{Referencia}
+
+% Incluir las referencias desde otro archivo sin duplicar el título
 \input{referencia}
+\newpage
 
 \end{document}
