@@ -1,3 +1,4 @@
+
 \section{El problema del cambio de monedas}
 El problema del cambio de monedas, un desafío clásico en el campo de la optimización combinatoria y las ciencias de la computación, involucra determinar el número mínimo de monedas que se requieren para sumar una cantidad específica de dinero. Este problema se complica aún más cuando las monedas disponibles están limitadas en cantidad. La programación dinámica ofrece una metodología robusta para abordar este tipo de problemas permitiendo una solución eficiente y efectiva.
 
@@ -28,7 +29,6 @@ def min_coins_change(total, denominations, counts):
                     used_coins[j] = used_coins[j - coin][:]
                     used_coins[j][i] += 1
 
-
     if dp[total_cents] == float('inf'):
         return "No se puede dar el cambio exacto"
     else:
@@ -41,7 +41,6 @@ counts = [2, 6, 5, 10]  # cantidad de monedas disponibles
 # Cantidad total a devolver
 total_change = 3.80  # en soles
 
-
 min_coins, coin_usage = min_coins_change(total_change, denominations, counts)
 
 print("Numero minimo de monedas:", min_coins)
@@ -49,29 +48,131 @@ print("Uso de monedas:", coin_usage)
 \end{lstlisting}
 
 \subsubsection{Resultado}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{resultado_imagen.png}
-    \caption{resultado del codigo Python.}
-    \label{fig:resultado}
-\end{figure}
+Número mínimo de monedas: 7 \\
+Uso de monedas: [2, 3, 1, 1]
 
 \subsubsection{Análisis de complejidad}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{complejidad_1.png}
-    \caption{Analisis del codigo.}
-    \label{fig:complejidad1}
-\end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{complejidad_2.png}
-    \caption{analisis del codigo.}
-    \label{fig:complejidad2}
-\end{figure}
+\section*{Análisis de Complejidad}
 
-La complejidad de este algoritmo está dada por la cantidad de denominaciones y la cantidad total a devolver, lo que resulta en una complejidad de \(O(n \cdot m)\), donde \(n\) es el número de denominaciones y \(m\) es la cantidad total a devolver.
+
+
+\subsection*{Detalle de Complejidad}
+
+\textbf{1. A: Convertir a centimos y crear lista de denominaciones en centimos.}
+
+El código correspondiente es:
+\begin{lstlisting}
+total_cents = int(total * 100)
+denominations_cents = [int(d * 100) for d in denominations]
+\end{lstlisting}
+
+- La conversión del total a centimos: \texttt{total\_cents = int(total * 100)} es una operación constante \( O(1) \).
+- La conversión de cada denominación a centimos: \texttt{denominations\_cents = [int(d * 100) for d in denominations]} es una operación que se realiza \( n \) veces, donde \( n \) es el número de denominaciones.
+
+Por lo tanto, la complejidad de esta parte es:
+\[ A = O(n) \]
+Aquí, \( n \) es el número de denominaciones.
+
+\textbf{2. B: Inicializar la tabla de DP.}
+
+El código correspondiente es:
+\begin{lstlisting}
+dp = [float('inf')] * (total_cents + 1)
+dp[0] = 0
+\end{lstlisting}
+
+- Inicializar la tabla \texttt{dp} con infinito: \texttt{dp = [float('inf')] * (total\_cents + 1)} implica recorrer \( m+1 \) posiciones, donde \( m \) es el total en centimos.
+- Establecer \texttt{dp[0] = 0} es una operación constante \( O(1) \).
+
+Por lo tanto, la complejidad de esta parte es:
+\[ B = O(m+1) \]
+Aquí, \( m \) es el total en centimos.
+
+\textbf{3. C: Inicializar \texttt{used\_coins}.}
+
+El código correspondiente es:
+\begin{lstlisting}
+used_coins = [[0 for _ in denominations] for _ in range(total_cents + 1)]
+\end{lstlisting}
+
+- Inicializar la tabla \texttt{used\_coins} implica crear una lista de listas de ceros. La lista externa tiene \( m+1 \) elementos y cada lista interna tiene \( n \) elementos.
+
+Por lo tanto, la complejidad de esta parte es:
+\[ C = (m+1) \cdot n \]
+\[ C = O((m+1)n) \]
+
+ \textbf{4. D: Procesar cada tipo de moneda.}
+
+El código correspondiente es:
+\begin{lstlisting}
+for i, coin in enumerate(denominations_cents):
+    for j in range(coin, total_cents + 1):
+        if dp[j - coin] != float('inf') and counts[i] > used_coins[j - coin][i]:
+            if dp[j] > dp[j - coin] + 1:
+                dp[j] = dp[j - coin] + 1
+                used_coins[j] = used_coins[j - coin][:]
+                used_coins[j][i] += 1
+\end{lstlisting}
+
+- El bucle externo sobre las denominaciones: \texttt{for i, coin in enumerate(denominations\_cents):} se ejecuta \( n \) veces.
+- El bucle interno sobre el rango del total en centimos: \texttt{for j in range(coin, total\_cents + 1):} se ejecuta aproximadamente \( m \) veces para cada denominación.
+- Comprobar y actualizar \texttt{dp} y \texttt{used\_coins} es una operación constante \( O(1) \).
+
+Por lo tanto, la complejidad de esta parte es:
+\[ D = \sum_{i=1}^{n} \sum_{j=i}^{m} O(1) \]
+\[ D = \sum_{i=1}^{n} O(m) \]
+\[ D = O(n \cdot m) \]
+
+\textbf{5. E: Condición final.}
+
+El código correspondiente es:
+\begin{lstlisting}
+if dp[total_cents] == float('inf'):
+    return "No se puede dar el cambio exacto"
+else:
+    return dp[total_cents], used_coins[total_cents]
+\end{lstlisting}
+
+- Verificar si se puede dar el cambio exacto: \texttt{if dp[total\_cents] == float('inf')} es una operación constante \( O(1) \).
+- Devolver el resultado es una operación constante \( O(1) \).
+
+Por lo tanto, la complejidad de esta parte es:
+\[ E = O(1) \]
+
+\textbf{6. F: Impresión de resultados.}
+
+El código correspondiente es:
+\begin{lstlisting}
+print("Numero minimo de monedas:", min_coins)
+print("Uso de monedas:", coin_usage)
+\end{lstlisting}
+
+- Imprimir el número mínimo de monedas y el uso de monedas es una operación constante \( O(1) \).
+
+Por lo tanto, la complejidad de esta parte es:
+\[ F = O(1) \]
+
+\subsection*{Complejidad Total}
+\subsection*{Fórmula }
+
+\[ T(m) = A + B + C + D + E + F \]
+
+Sumando todas las complejidades:
+\begin{align*}
+T(m) &= O(n) + O(m+1) + O((m+1)n) + O(n \cdot m) + O(1) + O(1) \\
+T(m) &= O(n) + O(m) + O((m+1)n) + O(n \cdot m) + O(1) \\
+T(m) &= O(n) + O(m) + O(m \cdot n) + O(m \cdot n) + O(1) \\
+T(m) &= O(n) + O(m) + O(m \cdot n) \\
+T(m) &= O(m \cdot n) \\
+\end{align*}
+
+\subsection*{Variables}
+
+\begin{itemize}
+    \item \( n \) = número de denominaciones de monedas.
+    \item \( m \) = monto total en centimos.
+\end{itemize}
 
 \subsection{Ejemplo 2}
 En primer lugar, debemos pensar cómo plantear el problema de forma incremental. Consideramos el tipo de moneda de mayor valor, \(X_N\). Si \(X_N > C\) entonces la descartamos y pasamos a considerar monedas de menor valor. Si \(X_N \leq C\) tenemos dos opciones: o tomar una moneda de tipo \(X_N\) y completar la cantidad restante \(C - X_N\) con otras monedas, o no tomar ninguna moneda de tipo \(X_N\) y completar la cantidad \(C\) con monedas de menor valor. De las dos opciones, nos quedamos con la que requiera un número menor de monedas. El problema lo podemos expresar de la siguiente forma cuando consideramos \(N\) tipos de monedas:
@@ -210,5 +311,6 @@ Inicialización de Variables y Estructuras:
     \end{itemize}
 \end{itemize}
 
-
 La complejidad total del algoritmo es: \(O(m \cdot n)\). El algoritmo tiene una eficiencia polinómica en términos del número de denominaciones y la cantidad total, lo cual es razonable para muchos problemas prácticos de cambio de monedas. La matriz matrizCambio utiliza \(O(m \cdot n)\) memoria, lo cual puede ser una limitación si \(m\) o \(n\) son muy grandes.
+
+
