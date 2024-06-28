@@ -12,13 +12,40 @@
 \usepackage{booktabs} % Para mejorar el aspecto de las tablas
 \usepackage{sectsty} % Paquete para configurar el tamaño de los títulos
 \usepackage{hyperref}
+\usepackage{xcolor} % Paquete para colores
+
+% Configuración de colores para imitar Visual Studio Code
+\definecolor{vscodebg}{rgb}{0.18, 0.18, 0.18}
+\definecolor{vscodetext}{rgb}{0.9, 0.9, 0.9}
+\definecolor{vscodekeyword}{rgb}{0.76, 0.37, 0.91}
+\definecolor{vscodecomment}{rgb}{0.5, 0.5, 0.5}
+\definecolor{vscodestring}{rgb}{0.58, 0.94, 0.56}
+\definecolor{vscodeidentifier}{rgb}{0.48, 0.83, 0.98}
+\definecolor{vscodeframe}{rgb}{0.0, 0.0, 0.5}
 
 \lstset{
-  basicstyle=\ttfamily\footnotesize,
-  breaklines=true,
+  backgroundcolor=\color{vscodebg},
+  basicstyle=\ttfamily\footnotesize\color{vscodetext},
+  keywordstyle=\color{vscodekeyword}\bfseries,
+  commentstyle=\color{vscodecomment}\itshape,
+  stringstyle=\color{vscodestring},
+  identifierstyle=\color{vscodeidentifier},
   frame=single,
+  framexleftmargin=15pt,
+  framexrightmargin=15pt,
+  framexbottommargin=5pt,
+  framextopmargin=5pt,
+  framerule=1pt,
+  rulecolor=\color{vscodeframe},
+  breaklines=true,
+  numbers=left,
+  numberstyle=\tiny\color{vscodetext},
+  captionpos=b,
+  tabsize=2,
+  showspaces=false,
+  showstringspaces=false,
   language=Python,
-  captionpos=b
+  title=\lstname
 }
 
 \doublespacing % Establece el interlineado a doble espacio
