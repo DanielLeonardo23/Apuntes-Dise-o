@@ -1,79 +1,119 @@
-\section{El Problema de la Mochila}
+
+\section{El problema de la mochila}
 El problema de la mochila es un clásico en el ámbito de la optimización combinatoria y la teoría de algoritmos. Se trata de seleccionar un subconjunto de artículos, cada uno con un peso y un valor, de manera que se maximice el valor total sin exceder la capacidad de peso permitida. Este problema es fundamental en campos como la logística, la gestión de recursos y la toma de decisiones en la ingeniería. La programación dinámica y las técnicas de aproximación ofrecen métodos eficientes para resolver este problema.
 
 \subsection{Ejemplo 1}
 Un naviero tiene un buque carguero con capacidad de hasta 500 toneladas. El carguero transporta contenedores de diferentes pesos para una determinada ruta. En la ruta actual el carguero puede transportar algunos de los siguientes contenedores:
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{cccccc}
-        \toprule
-        \textbf{Contenedor} & 1 & 2 & 3 & 4 & 5 \\
-        \midrule
-        Peso en (cientos de toneladas) & 1 & 2 & 1 & 3 & 4 \\
-        Valor (miles de dólares) & 3 & 5 & 4 & 6 & 7 \\
-        \bottomrule
-    \end{tabular}
-    \caption{Datos del problema de la mochila. Elaboración propia.}
-    \label{tab:datos_contenedores}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Contenedor & 1 & 2 & 3 & 4 & 5 \\
+\hline
+Peso en (cientos de toneladas) & 1 & 2 & 1 & 3 & 4 \\
+\hline
+Valor (miles de dólares) & 3 & 5 & 4 & 6 & 7 \\
+\hline
+\end{tabular}
+\caption{Datos ejemplo 1}
 \end{table}
 
 El analista de la empresa del armador desea determinar el envío (conjunto de contenedores) que maximiza el valor de la carga transportada.
 
 \subsubsection{Código}
-\begin{lstlisting}[language=Python]
+\begin{lstlisting}
 def algoritmo_mochila(pesos, valores, capacidad):
-    n = len(pesos)
+    n = len(pesos)  
     matriz = []
     for i in range(n + 1):
         fila = []
         for j in range(capacidad + 1):
-            fila.append(0)
-        matriz.append(fila)
+            fila.append(0)  
+        matriz.append(fila)  
 
-    for i in range(1, n + 1):
-        for w in range(1, capacidad + 1):
-            if pesos[i - 1] <= w:
-                matriz[i][w] = max(matriz[i - 1][w], valores[i - 1] + matriz[i - 1][w - pesos[i - 1]])
+    for i in range(1, n + 1):  
+        for w in range(1, capacidad + 1):  
+            if pesos[i - 1] <= w:  
+                matriz[i][w] = max(matriz[i - 1][w], valores[i - 1] + matriz[i - 1][w - pesos[i - 1]])  
             else:
-                matriz[i][w] = matriz[i - 1][w]
-
-    w = capacidad
-    contenedores_seleccionados = []
-    for i in range(n, 0, -1):
-        if matriz[i][w] != matriz[i - 1][w]:
-            contenedores_seleccionados.append(i)
-            w -= pesos[i - 1]
+                matriz[i][w] = matriz[i - 1][w]  
 
     valor_maximo = matriz[n][capacidad]
-    contenedores_seleccionados.reverse()
-    return valor_maximo, contenedores_seleccionados
+    return valor_maximo
+
+pesos = [1, 2, 1, 3, 4]  # Pesos en centenas de toneladas
+valores = [3, 5, 4, 6, 7]   # Valores en miles de dólares
+capacidad = 500              # Capacidad del carguero en toneladas
+capacidad_ajustada = capacidad // 100  # Ajustar a centenas
+valor_maximo = algoritmo_mochila(pesos, valores, capacidad_ajustada)
+print("El valor máximo de la carga transportada es:", valor_maximo, "miles de dólares.")
 \end{lstlisting}
 
 \subsubsection{Resultado}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{resultado_mochila_ejem1.png}
-    \caption{Imagen del resultado del código Python.}
-    \label{fig:resultado_ejemplo1}
-\end{figure}
+El valor máximo de la carga transportada es: 18 miles de dólares.
 
 \subsubsection{Análisis de complejidad}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{complejidad_mochila_ejem1.png}
-    \caption{Análisis del código.}
-    \label{fig:complejidad_ejemplo1}
-\end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{complejidad_mochila_ejem1_2.png}
-    \caption{Análisis del código.}
-    \label{fig:complejidad_ejemplo1_2}
-\end{figure}
+\section*{Análisis de Complejidad}
 
-Como podemos observar, la complejidad del algoritmo está en función de la variable C que es la capacidad. Es decir, si la capacidad es demasiado grande, la complejidad será mayor; caso contrario, la complejidad será mínima.
+\subsection*{Detalle de Complejidad}
+
+\textbf{1. A: Inicialización de la matriz.}
+
+El código correspondiente es:
+\begin{lstlisting}
+matriz = []
+for i in range(n + 1):  # O(n)
+    fila = []
+    for j in range(capacidad + 1):  # O(capacidad)
+        fila.append(0)  # O(1)
+    matriz.append(fila)  # O(1)
+\end{lstlisting}
+
+- Inicializar la matriz con ceros tiene una complejidad de \( O(n \times capacidad) \).
+
+\textbf{2. B: Llenado de la matriz con los valores óptimos.}
+
+El código correspondiente es:
+\begin{lstlisting}
+for i in range(1, n + 1):  # O(n)
+    for w in range(1, capacidad + 1):  # O(capacidad)
+        if pesos[i - 1] <= w:  # O(1)
+            matriz[i][w] = max(matriz[i - 1][w], valores[i - 1] + matriz[i - 1][w - pesos[i - 1]])  # O(1)
+        else:
+            matriz[i][w] = matriz[i - 1][w]  # O(1)
+\end{lstlisting}
+
+- El llenado de la matriz para calcular los valores óptimos tiene una complejidad de \( O(n \times capacidad) \).
+
+\textbf{3. C: Determinación del valor máximo.}
+
+El código correspondiente es:
+\begin{lstlisting}
+valor_maximo = matriz[n][capacidad]  # O(1)
+\end{lstlisting}
+
+- La determinación del valor máximo es una operación constante \( O(1) \).
+
+\subsection*{Complejidad Total}
+
+\[
+T(n, capacidad) = O(n \times capacidad)
+\]
+
+Sumando todas las complejidades:
+
+\[
+T(n, capacidad) = O(n \times capacidad)
+\]
+
+\subsection*{Variables}
+
+\begin{itemize}
+    \item \( n \) = número de artículos.
+    \item \( capacidad \) = capacidad de la mochila en centenas de toneladas.
+\end{itemize}
 
 \subsection{Ejemplo 2}
 Una empresa de transporte marítimo de mercancías posee un barco con una bodega cuya capacidad es de 250 cm³. Desea transportar cuatro bienes de los que se dispone su volumen y su valor monetario. En la siguiente tabla se muestra dicha información:
