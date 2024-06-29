@@ -69,6 +69,60 @@ Uno de los algoritmos más utilizados en programación dinámica para este tipo 
 \end{figure}
 
 \subsubsection{Análisis de complejidad}
+
+\section*{Análisis de Complejidad}
+
+\subsection*{Detalle de Complejidad}
+
+El código correspondiente es:
+\begin{lstlisting}
+	def Floyd_Warshall(graph):
+	n = len(graph) #... O(1)
+	dist = [[] for i in range(n)] #... O(n)
+	for i in range(n): #...Q
+	  for j in range(n): #...P
+		dist[i].append(graph[i][j]) #...O(1)
+  
+	for k in range(n): #...T
+	  for i in range(n): #...S
+		for j in range(n): #...R
+		  dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]) #...O(1)
+	#Imprimir solucion
+	print('Distancia mas corta entre todo par de nodos:') #...O(1)
+	for i in range(n): #...V
+	  for j in range(n): #...U
+		if dist[i][j] == INF: #...O(1)
+		  print("%7s" % ("INF"), end = ' ') #...O(1)
+		else:
+		  print("%7s" % (dist[i][j]), end = ' ') #...O(1)
+	  print() #...O(1)
+
+\end{lstlisting}
+
+\subsection*{Complejidad Total}
+\subsection*{Fórmula }
+La complejidad del codigo se determina de la siguiente manera
+\[T(n) = 1 + n + n + Q + T + 1 + V\]
+\[ Q = \sum_{i = 1}^{\\n} P \quad T = \sum_{k = 1}^{\\n} S \quad V = \sum_{i = 1}^{\\n} U \]
+
+Entonces
+\[T(n) = 1 + n + n + \sum_{i = 1}^{\\n} P + \sum_{k = 1}^{\\n} S  + 1 + \sum_{i = 1}^{\\n} U \]
+\[P = \sum_{j = 1}^{\\n} 1 \quad S = \sum_{i = 1}^{\\n} R\ \quad U = \sum_{j = 1}^{\\n} (1+1+1) \]
+\[T(n) = 2 + 2n + \sum_{i = 1}^{\\n} \sum_{j = 1}^{\\n} 1 + \sum_{k = 1}^{\\n} \sum_{i = 1}^{\\n} R + \sum_{i = 1}^{\\n} \sum_{j = 1}^{\\n} (1 + 1 + 1) \]
+\[T(n) = 2 + 2n + n^2 + \sum_{k = 1}^{\\n} \sum_{i = 1}^{\\n} \sum_{j = 1}^{\\n} 1 + 3n^2 \]
+\[T(n) = 2 + 2n + n^2 + n^3 + 3n^2 \]
+\[T(n) = 2 + 2n + 4n^2 + n^3 \]
+\[T(n) = O(n^3)\]
+
+Como es posible apreciar, el uso del algoritmo tiene un costo aproximado de O($n^3$), lo cual no representa muy favorable en términos de eficiencia.
+
+\subsection*{Variables}
+
+\begin{itemize}
+    \item \( n \) = número de vertices.
+\end{itemize}
+
+\subsubsection{Anexo Floy Warshall Análisis de complejidad}
 %%%%%%%%%%%%%%%%%%
 \begin{figure}[H]
 	\centering
@@ -91,8 +145,6 @@ Uno de los algoritmos más utilizados en programación dinámica para este tipo 
 	\label{fig:complejidad1}
 \end{figure}
 
-
-Como es posible apreciar, el uso del algoritmo tiene un costo aproximado de $n^3$, lo cual no representa muy favorable en términos de eficiencia.
 
 \subsection{Ejemplo 2}
 \textbf{Algoritmo de Bellman-Ford}
@@ -185,6 +237,76 @@ Uno de los algoritmos más utilizados en programación dinámica para este tipo 
 \end{figure}
 
 \subsubsection{Análisis de complejidad}
+
+\section*{Análisis de Complejidad}
+
+\subsection*{Detalle de Complejidad}
+
+El código correspondiente es:
+\begin{lstlisting}
+	def relax (u,v,w,d,p): #...A
+	if d[v] > d[u] + w[u,v]: #...O(1)
+	  d[v] = d[u] + w[u,v]	#...O(1)
+	  p[v] = u	#...O(1)
+  
+  def Bellman_Ford(w,n,s):
+  
+	inf = 1e100 #...O(1)
+	d = [0 for i in range(n)] #...O(n)
+	p = [0 for i in range(n)] #...O(n)
+  
+	for vertex in range(n): #...P
+	  d[vertex] = inf #...O(1)
+	  p[vertex] = 'null' #...O(1)
+  
+	d[s] = 0 #...O(1)
+  
+	for _ in range (n-1): #...Q
+	  for u,v in w:  #...R
+		relax(u,v,w,d,p) #...A
+  
+	for (u,v) in w:  #...S
+	  if d[v] > d[u] + w[u,v]: #...O(1)
+		return False #...O(1)
+  
+	print("Distancias mas cortas") #...O(1)
+	for i in range(n): #...O(n)
+	  print(i, ": ", d[i])
+  
+	print("\nNodos previos") #...O(1)
+	for i in range(n): #...O(n)
+	  print(i, ": ", p[i])
+  
+	return True #...O(1)
+
+\end{lstlisting}
+
+\subsection*{Complejidad Total}
+\subsection*{Fórmula }
+La complejidad del codigo se determina de la siguiente manera
+\[relax \Longrightarrow A = O(1)\]
+\[T(n) = 1 + n + n + P + 1 + Q + S + 1 + n + 1 + n + 1 \]
+\[T(n) = 5 + 4n + P + Q + S \]
+\[P = \sum_{i = 1}^{\\n} 2 \quad Q = \sum_{i = 1}^{\\n-1} R \quad S = \sum_{aristas \epsilon W }^{} 1 \]
+\[T(n) = 5 + 4n + \sum_{i = 1}^{\\n} 2 + \sum_{i = 1}^{\\n-1} R + \sum_{aristas \epsilon W }^{} 1 \]
+\[R = \sum_{aristas \epsilon W }^{} A \]
+\[T(n) = 5 + 4n + (2n) + \sum_{i = 1}^{\\n-1} \sum_{aristas \epsilon W }^{} A + m\]
+\[T(n) = 5 + 6n + \sum_{i = 1}^{\\n-1} \sum_{aristas \epsilon W }^{} 1 + m\]
+\[T(n) = 5 + 6n + \sum_{i = 1}^{\\n-1} m + m\]
+\[T(n) = 5 + 6n + m(n-1) + m\]
+\[T(n) = mn + 6n + 5\]
+\[T(n) = O(m*n)\]
+
+El uso del algoritmo tiene un costo aproximado de O(m*n). Si m fuese el numero maximo de aristas la complejidad pasaria a ser de O($n^3$)
+
+\subsection*{Variables}
+
+\begin{itemize}
+    \item \( n \) = número de vertices.
+    \item \( m \) = número de aristas.
+\end{itemize}
+
+\subsubsection{Anexo Bellman-Ford Análisis de complejidad}
 %%%%%%%%%%%%
 \begin{figure}[H]
 	\centering
