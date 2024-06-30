@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.6.29)  29 JUN 2024 17:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.6.29)  30 JUN 2024 09:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -418,7 +418,8 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count306
 \l__pdf_internal_box=\box57
-) (main.aux)
+)
+No file main.aux.
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
@@ -441,7 +442,7 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 60.
 LaTeX Font Info:    ... okay on input line 60.
 LaTeX Info: Redefining \. on input line 60.
 LaTeX Info: Redefining \% on input line 60.
- (C:\Users\Henry Campos Garcia\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+(C:\Users\Henry Campos Garcia\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count307
 \scratchdimen=\dimen182
@@ -718,17 +719,17 @@ File: complejidad_distancia_ejem1_3.png Graphic file (type png)
 Package pdftex.def Info: complejidad_distancia_ejem1_3.png  used on input line 143.
 (pdftex.def)             Requested size: 362.37598pt x 76.99477pt.
  [29 <./complejidad_distancia_ejem1_1.png> <./complejidad_distancia_ejem1_2.png>]
-<distancias_cortas_RepresentacionG1_ejem2.png, id=471, 557.08125pt x 361.35pt>
-File: distancias_cortas_RepresentacionG1_ejem2.png Graphic file (type png)
-<use distancias_cortas_RepresentacionG1_ejem2.png>
-Package pdftex.def Info: distancias_cortas_RepresentacionG1_ejem2.png  used on input line 157.
-(pdftex.def)             Requested size: 362.37598pt x 235.05667pt.
+<bellman-fordejemplo.png, id=471, 481.8pt x 295.1025pt>
+File: bellman-fordejemplo.png Graphic file (type png)
+<use bellman-fordejemplo.png>
+Package pdftex.def Info: bellman-fordejemplo.png  used on input line 157.
+(pdftex.def)             Requested size: 362.37598pt x 221.96123pt.
 <distancias_cortas_Pseudo2.png, id=472, 518.53725pt x 190.91325pt>
 File: distancias_cortas_Pseudo2.png Graphic file (type png)
 <use distancias_cortas_Pseudo2.png>
 Package pdftex.def Info: distancias_cortas_Pseudo2.png  used on input line 168.
 (pdftex.def)             Requested size: 362.37598pt x 133.41696pt.
- [30 <./complejidad_distancia_ejem1_3.png> <./distancias_cortas_RepresentacionG1_ejem2.png>] [31 <./distancias_cortas_Pseudo2.png>]
+ [30 <./complejidad_distancia_ejem1_3.png> <./bellman-fordejemplo.png>] [31 <./distancias_cortas_Pseudo2.png>]
 <resultado_distancias_ejem2.png, id=515, 424.58624pt x 266.1945pt>
 File: resultado_distancias_ejem2.png Graphic file (type png)
 <use resultado_distancias_ejem2.png>
@@ -783,15 +784,15 @@ Package rerunfilecheck Info: Checksums for `main.out':
 (rerunfilecheck)             After:  62B976632533AF6CB3877C4A9E459656;5213.
  ) 
 Here is how much of TeX's memory you used:
- 14832 strings out of 474486
- 235600 string characters out of 5737111
+ 14829 strings out of 474486
+ 235364 string characters out of 5737111
  2198542 words of memory out of 5000000
- 36412 multiletter control sequences out of 15000+600000
+ 36411 multiletter control sequences out of 15000+600000
  595195 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,10n,79p,805b,2140s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Henry Campos Garcia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1000.pk><C:/Users/Henry Campos Garcia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Henry Campos Garcia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/Henry Campos Garcia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Henry Campos Garcia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Henry Campos Garcia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Henry Campos Garcia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Henry Campos Garcia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/Henry Campos Garcia/AppData/Local/Programs/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Users/Henry Campos Garcia/AppData/Local/Programs/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Users/Henry Campos Garcia/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Henry Campos Garcia/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Henry Campos Garcia/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (41 pages, 8718426 bytes).
+Output written on main.pdf (41 pages, 8657555 bytes).
 PDF statistics:
  808 PDF objects out of 1000 (max. 8388607)
  468 named destinations out of 1000 (max. 500000)
