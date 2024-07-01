@@ -221,7 +221,7 @@ El código correspondiente es:
 	# Complejidad: O(n * capacidad)
 \end{lstlisting}
 
-- El llenado de la matriz, el doble bucle anidado, tiene una complejidad de \( O(n \times capacidad) \).
+El llenado de la matriz, el doble bucle anidado, tiene una complejidad de \( O(n \times capacidad) \).
 
 \textbf{3. C: Recuperar los Elementos Seleccionados.}
 
@@ -242,7 +242,7 @@ El código correspondiente es:
 			w -= volumenes[i - 1]  # O(1)
 	# Complejidad: O(n)
 \end{lstlisting}
--Este bucle se ejecuta como máximo 𝑛 veces por lo que su complejidad es \( O(n) \).
+-Este bucle se ejecuta como maximo 'n'veces por lo que su complejidad es \( O(n) \).
 
 \textbf{4. D: Inicialización de la Lista seleccion.}
 
@@ -251,7 +251,7 @@ El código correspondiente es:
 	seleccion = [0] * n
 	# Complejidad: O(n)
 \end{lstlisting}
-- La inicialización de esta lista requiere recorrer 𝑛 elementos, por tal motivo la complejidad es de \( O(n) \).
+- La inicializacion de esta lista requiere recorrer n elementos, por tal motivo la complejidad es de \( O(n) \).
 
 \textbf{5. E: Asignación de Bienes Seleccionados a la Lista seleccion.}
 
@@ -261,12 +261,11 @@ El código correspondiente es:
 		seleccion[i] = 1  # O(1)
 	# Complejidad: O(n)
 \end{lstlisting}
-- Este bucle recorre la lista bienes_seleccionados, lo cual puede tener en el peor de los casos como máximo 𝑛 elementos. Entonces la complejidad es de \( O(n) \).
-
+Este bucle recorre la lista \textit{bienes\_seleccionados}, lo cual puede tener en el peor de los casos como máximo \( n \) elementos. Entonces la complejidad es de \( O(n) \).
 
 \subsection*{Complejidad Total}
 
-Como se acaba de apreciar, el presente algoritmo tiene una complejidad de n x capacidad, lo cual supone eficiencia en función al dato de entrada de “capacidad”; mientras más sea esto, más complejo se vuelve.
+Como se acaba de apreciar, el presente algoritmo tiene una complejidad de n x capacidad, lo cual supone eficiencia en funcion al dato de entrada de “capacidad”; mientras más sea esto, más complejo se vuelve.
 La complejidad dominante del algoritmo es la inicialización y el llenado de la matriz dp que representaria nuestra complejidad total:
 
 \[
@@ -276,11 +275,11 @@ T(n, capacidad) = O(n \times capacidad)
 \subsection*{Variables}
 
 \begin{itemize}
-	\item \( n \) = Número de bienes disponibles.
+	\item \( n \) = Numero de bienes disponibles.
 	\item \( capacidad \) = Capacidad total de la bodega.
 \end{itemize}
 
 
 
 
-Como se acaba de apreciar, el presente algoritmo tiene una complejidad aproximada de O(n x K) o, equivalentemente, n x capacidad, lo cual supone eficiencia en función al dato de entrada de “capacidad”; mientras más sea esto, más complejo se vuelve.
+Como se acaba de apreciar, el presente algoritmo tiene una complejidad aproximada de O(n x K) o, equivalentemente, n x capacidad, lo cual supone eficiencia en funcion al dato de entrada de “capacidad”; mientras mas sea esto, mas complejo se vuelve.
