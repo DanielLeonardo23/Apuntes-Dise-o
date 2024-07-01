@@ -23,17 +23,20 @@
 \contentsline {subsection}{\numberline {5.2}Ejemplo 2}{19}{subsection.5.2}%
 \contentsline {subsubsection}{\numberline {5.2.1}Código}{19}{subsubsection.5.2.1}%
 \contentsline {subsubsection}{\numberline {5.2.2}Resultado}{21}{subsubsection.5.2.2}%
-\contentsline {subsubsection}{\numberline {5.2.3}Análisis de complejidad}{22}{subsubsection.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.3}Análisis de complejidad}{21}{subsubsection.5.2.3}%
 \contentsline {section}{\numberline {6}El Problema de las Distancias Más Cortas}{24}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Ejemplo 1}{24}{subsection.6.1}%
 \contentsline {subsubsection}{\numberline {6.1.1}Código}{25}{subsubsection.6.1.1}%
 \contentsline {subsubsection}{\numberline {6.1.2}Resultado}{26}{subsubsection.6.1.2}%
 \contentsline {subsubsection}{\numberline {6.1.3}Análisis de complejidad}{26}{subsubsection.6.1.3}%
-\contentsline {subsubsection}{\numberline {6.1.4}Anexo Floy Warshall Análisis de complejidad}{29}{subsubsection.6.1.4}%
-\contentsline {subsection}{\numberline {6.2}Ejemplo 2}{30}{subsection.6.2}%
-\contentsline {subsubsection}{\numberline {6.2.1}Código}{31}{subsubsection.6.2.1}%
-\contentsline {subsubsection}{\numberline {6.2.2}Resultado}{33}{subsubsection.6.2.2}%
-\contentsline {subsubsection}{\numberline {6.2.3}Análisis de complejidad}{33}{subsubsection.6.2.3}%
-\contentsline {subsubsection}{\numberline {6.2.4}Anexo Bellman-Ford Análisis de complejidad}{36}{subsubsection.6.2.4}%
-\contentsline {section}{\numberline {7}Conclusiones}{39}{section.7}%
-\contentsline {section}{Referencia}{40}{section*.20}%
+\contentsline {subsection}{\numberline {6.2}Ejemplo 2}{28}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Código}{29}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Resultado}{31}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.3}Análisis de complejidad}{31}{subsubsection.6.2.3}%
+\contentsline {section}{\numberline {7}Conclusiones}{34}{section.7}%
+\contentsline {section}{\numberline {8}Anexos}{35}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Anexo Problema de la mochila ejemplo 1}{35}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Anexo Problema de la mochila ejemplo 2}{36}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Anexo Floy Warshall Análisis de complejidad}{38}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Anexo Bellman-Ford Análisis de complejidad}{39}{subsection.8.4}%
+\contentsline {section}{Referencia}{42}{section*.21}%

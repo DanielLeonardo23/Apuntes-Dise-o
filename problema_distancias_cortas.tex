@@ -10,7 +10,7 @@ Sin embargo, desea encontrar las rutas más cortas a seguir entre su local y la 
 	\centering
 	\includegraphics[width=0.8\textwidth]{distancias_cortas_RepresentacionG1.png}
 	\caption{Representación gráfica del problema.}
-	\label{fig:resultado}
+	\label{fig:resultado1}
 \end{figure}
 
 Uno de los algoritmos más utilizados en programación dinámica para este tipo de problemas es el algoritmo de Floyd Warshall, cuyo pseudocódigo es el siguiente
@@ -19,7 +19,7 @@ Uno de los algoritmos más utilizados en programación dinámica para este tipo 
 	\centering
 	\includegraphics[width=0.8\textwidth]{distancias_cortas_Pseudo1.png}
 	\caption{Pseudocódigo de Floyd Warshall.}
-	\label{fig:resultado}
+	\label{fig:resultado2}
 \end{figure}
 
 \subsubsection{Código}
@@ -65,7 +65,7 @@ Uno de los algoritmos más utilizados en programación dinámica para este tipo 
 	\centering
 	\includegraphics[width=0.8\textwidth]{resultado_distancias_ejem1.png}
 	\caption{Resultado de la ejecución del código Python.}
-	\label{fig:resultado}
+	\label{fig:resultado3}
 \end{figure}
 
 \subsubsection{Análisis de complejidad}
@@ -122,30 +122,6 @@ Como es posible apreciar, el uso del algoritmo tiene un costo aproximado de O($n
     \item \( n \) = número de vertices.
 \end{itemize}
 
-\subsubsection{Anexo Floy Warshall Análisis de complejidad}
-%%%%%%%%%%%%%%%%%%
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{complejidad_distancia_ejem1_1.png}
-	\caption{Analisis del codigo.}
-	\label{fig:complejidad1}
-\end{figure}
-%%%%%%%%%%%%%%%%%%
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{complejidad_distancia_ejem1_2.png}
-	\caption{Analisis del codigo.}
-	\label{fig:complejidad1}
-\end{figure}
-%%%%%%%%%%%%%%%%%%
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{complejidad_distancia_ejem1_3.png}
-	\caption{Analisis del codigo.}
-	\label{fig:complejidad1}
-\end{figure}
-
-
 \subsection{Ejemplo 2}
 \textbf{Algoritmo de Bellman-Ford}
 
@@ -156,7 +132,7 @@ Eres ingeniero de sistemas especializado en redes en una empresa en la que traba
 	\centering
 	\includegraphics[width=0.8\textwidth]{bellman-fordejemplo.png}
 	\caption{Representación gráfica del problema.}
-	\label{fig:resultado}
+	\label{fig:resultado4}
 \end{figure}
 
 
@@ -167,7 +143,7 @@ Uno de los algoritmos más utilizados en programación dinámica para este tipo 
 	\centering
 	\includegraphics[width=0.8\textwidth]{distancias_cortas_Pseudo2.png}
 	\caption{Pseudocódigo de Bellman-Ford.}
-	\label{fig:resultado}
+	\label{fig:resultado5}
 \end{figure}
 
 \subsubsection{Código}
@@ -233,7 +209,7 @@ Uno de los algoritmos más utilizados en programación dinámica para este tipo 
 	\centering
 	\includegraphics[width=0.8\textwidth]{resultado_distancias_ejem2.png}
 	\caption{Resultado de la ejecución del codigo Python.}
-	\label{fig:resultado}
+	\label{fig:resultado6}
 \end{figure}
 
 \subsubsection{Análisis de complejidad}
@@ -306,42 +282,3 @@ El uso del algoritmo tiene un costo aproximado de O(m*n). Si m fuese el numero m
     \item \( m \) = número de aristas.
 \end{itemize}
 
-\subsubsection{Anexo Bellman-Ford Análisis de complejidad}
-%%%%%%%%%%%%
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{complejidad_distancia_ejem2_1.png}
-	\caption{Analisis del codigo.}
-	\label{fig:complejidad1}
-\end{figure}
-
-%%%%%%%%%%%%
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{complejidad_distancia_ejem2_2.png}
-	\caption{Analisis del codigo.}
-	\label{fig:complejidad1}
-\end{figure}
-%%%%%%%%%%%%
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{complejidad_distancia_ejem2_3.png}
-	\caption{Analisis del codigo.}
-	\label{fig:complejidad1}
-\end{figure}
-%%%%%%%%%%%%
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{complejidad_distancia_ejem2_4.png}
-	\caption{Analisis del codigo.}
-	\label{fig:complejidad1}
-\end{figure}
-%%%%%%%%%%%%
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{complejidad_distancia_ejem2_2.png}
-	\caption{Analisis del codigo.}
-	\label{fig:complejidad1}
-\end{figure}
-
-Puede observar que la complejidad es O(m*n), donde m es el numero de aristas y n de nodos. Si m fuera el numero máximo de aristas, la complejidad se define como O($n^3$)
